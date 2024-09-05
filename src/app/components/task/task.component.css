@@ -1,0 +1,27 @@
+.task {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #F5E8D5;
+    color: black;
+    font-weight: bold;
+    font-family: "Outfit", sans-serif;
+}
+
+.task-icon {
+    background: #E9A23B;
+    border: none;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-icon img {
+    width: 2rem;
+}

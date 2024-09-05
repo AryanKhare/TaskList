@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 1rem;
+    gap: 1rem;
+    outline: 1px solid;
+}
+
+.title {
+    display: flex;
+    font-family: "Outfit", sans-serif;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.title-head {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-heading {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+.title-heading img {
+    width: 1.5rem;
+}
+
+.title-desc {
+    font-size: 1rem;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.add-task {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #F5E8D5;
+    color: black;
+    font-weight: bold;
+    font-family: "Outfit", sans-serif;
+}
+
+.add-task-icon {
+    background: #E9A23B;
+    border: none;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-task-icon img {
+    width: 2rem;
+}

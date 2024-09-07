@@ -1,7 +1,7 @@
 <div class="container">
     @for (item of iconList; track $index) {
         <button class="iconBox" 
-        [ngStyle]="{'background-color': this.iconForm.get('selectedIconId')?.value === item.id ? 'yellow' : 'white'}"
+        [ngStyle]="{'background-color': this.selectedIconId === item.id ? 'yellow' : 'lightgrey'}"
         (click)="selectIcon(item.id)">
             <p>{{item.icon}}</p>
         </button>

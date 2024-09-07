@@ -28,13 +28,14 @@ export class AddComponent {
 
   save() {
     const formData: any = this.formComponent.submitForm();
-    this.formIconComponent.submitIconForm();
+    const iconData = this.formIconComponent.submitIconForm();
     const statusData = this.statusComponent.selectedType;
 
     const result = {
       title: formData.title,
       description: formData?.description !== '' ? formData.description : null,
       status: statusData,
+      icon: iconData
     };
 
     console.log(result);

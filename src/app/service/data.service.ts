@@ -19,8 +19,13 @@ export class DataService {
 
   setData(item: Task): void {
     const data = this.getData();
+
+    item.id = data.length + 1;
+    item.createDate = new Date();
+
     data.push(item);
     localStorage.setItem('taskData', JSON.stringify(data));
+    console.log(data);
   }
 
   clearData() {

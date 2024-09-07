@@ -16,4 +16,12 @@ export class IconService {
     { id: 6, icon: '💭', },
     { id: 7, icon: '👩‍💻', },
   ];
+
+  getIndexValue(index: number): string {
+    const data = this.iconList[index].icon;
+    if(data) {
+      return data;
+    }
+    return '';
+  }
 }

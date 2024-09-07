@@ -29,5 +29,5 @@
 </div>
 
 @if (isModalOpen) {
-  <app-add (closeModal)="closeModal()"></app-add>
+  <app-add (closeModal)="closeModal()" (reload)="ngOnInit()"></app-add>
 }

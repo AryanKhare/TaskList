@@ -9,7 +9,6 @@
     border-radius: 0.5rem;
     background: #F5E8D5;
     color: black;
-    font-weight: bold;
     font-family: "Outfit", sans-serif;
 }
 
@@ -20,8 +19,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0.5rem;
 }
 
 .task-icon img {
-    width: 2rem;
+    width: 100%;
+}
+
+.task-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-content p:first-child {
+    font-weight: bold;
 }

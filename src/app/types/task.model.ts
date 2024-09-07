@@ -1,11 +1,9 @@
 export interface Task {
-    id: number,
+    id?: number,
     title: string,
     description?: string | null,
-    type?: Type,
-    createDate: Date,
+    type?: string | null,
+    createDate?: Date,
     lastUpdated?: Date | null,
     icon: string
 };
-
-type Type = 'complete' | 'dont' | 'progress';

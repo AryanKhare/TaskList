@@ -18,6 +18,13 @@ export class AppComponent implements OnInit {
   boradDesc: string = 'Tasks to keep organised';
   taskData!: Task[];
   isModalOpen: boolean = false;
+  modalData: Task = {
+    id: -1,
+    title: '',
+    description: '',
+    type: '',
+    icon: ''
+  };
   
   constructor(private dataService: DataService) { }
 
@@ -25,11 +32,19 @@ export class AppComponent implements OnInit {
     this.taskData = this.dataService.getData();
   }
 
-  openModal() {
+  openModal(modalData: Task) {
+    this.modalData = modalData;
     this.isModalOpen = true;
   }
 
   closeModal() {
     this.isModalOpen = false;
+    this.modalData = {
+      id: -1,
+      title: '',
+      description: '',
+      type: '',
+      icon: ''
+    };
   }
 }

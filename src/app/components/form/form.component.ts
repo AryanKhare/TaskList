@@ -12,21 +12,26 @@ export class FormComponent implements OnInit {
 
   @Input() titleLable!: string;
   @Input() descLabel!: string;
+  @Input() titleValue!: string;
+  @Input() descriptionValue!: string | null | undefined;
 
-  title = new FormControl("", [Validators.required]);
-  description = new FormControl("");
+  title!: FormControl;
+  description!: FormControl;
   form!: FormGroup;
 
   ngOnInit(): void {
+    this.title = new FormControl(this.titleValue, [Validators.required]);
+    this.description = new FormControl(this.descriptionValue);
+  
     this.form = new FormGroup({
       title: this.title,
       description: this.description
     });
+
   }
 
   submitForm() {
     if(this.form.valid) {
-      // console.log(this.form.value);
       return this.form.value;
     }
   }

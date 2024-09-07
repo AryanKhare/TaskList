@@ -18,7 +18,7 @@ export class IconService {
   ];
 
   getIndexValue(index: number): string {
-    const data = this.iconList[index].icon;
+    const data = this.iconList[index + 1].icon;
     if(data) {
       return data;
     }

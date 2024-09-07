@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IconService } from '../../service/icon.service';
 import { Icon } from '../../types/icon.model';
 import { CommonModule } from '@angular/common';

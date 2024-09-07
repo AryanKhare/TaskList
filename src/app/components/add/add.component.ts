@@ -1,6 +1,8 @@
 import {
   Component,
   EventEmitter,
+  Input,
+  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -18,7 +20,9 @@ import { IconService } from '../../service/icon.service';
   templateUrl: './add.component.html',
   styleUrl: './add.component.css',
 })
-export class AddComponent {
+export class AddComponent implements OnInit{
+  @Input() modalData!: Task;
+
   @Output() closeModal = new EventEmitter<void>();
   @Output() reload = new EventEmitter<void>();
 
@@ -26,10 +30,20 @@ export class AddComponent {
   @ViewChild(IconComponent) formIconComponent!: IconComponent;
   @ViewChild(StatusComponent) statusComponent!: StatusComponent;
 
+  taskId: number | undefined;
+  titleValue!: string;
+  descriptionValue: string | null | undefined = '';
+
   constructor(
     private dataService: DataService,
     private iconService: IconService
   ) { }
+
+  ngOnInit(): void {
+    this.taskId = this.modalData.id;
+    this.titleValue = this.modalData?.title;
+    this.descriptionValue = this.modalData?.description;
+  }
 
   close() {
     this.closeModal.emit();
@@ -54,6 +68,11 @@ export class AddComponent {
     };
 
     this.dataService.setData(result);
+    this.close();
+  }
+
+  delete(id: number | undefined) {
+    this.dataService.deleteTask(id);
     this.close();
   }
 

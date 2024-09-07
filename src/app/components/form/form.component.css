@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.title, .desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    font-family: "Outfit", sans-serif;
+}
+
+.title label, .desc label {
+    color: grey;
+    font-size: 1rem;
+}
+
+.title input, .desc textarea {
+    border: 1px solid grey;
+    border-radius: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.title input:focus, .desc textarea:focus {
+    outline: none;
+    border: 2px solid #3662E3;
+}

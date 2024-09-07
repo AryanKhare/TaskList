@@ -23,11 +23,9 @@ export class IconComponent implements OnInit {
     this.iconForm = new FormGroup({
       selectedIconId: this.selectedIconId,
     });
-    console.log('HI', this.iconList[0].id);
   }
 
   selectIcon(iconId: number) {
-    console.log(iconId);
     const currIconId = this.iconForm.get('selectedIconId')?.value;
     if (currIconId === iconId) {
       this.iconForm.get('selectedIconId')?.setValue(null);

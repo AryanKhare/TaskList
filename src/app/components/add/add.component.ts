@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormComponent } from "../form/form.component";
 import { IconComponent } from "../icon/icon.component";
 import { StatusComponent } from "../status/status.component";
@@ -12,8 +12,13 @@ import { StatusComponent } from "../status/status.component";
 })
 export class AddComponent {
   @Output() closeModal = new EventEmitter<void>();
+  @ViewChild(FormComponent) formComponent!: FormComponent;
 
   close() {
     this.closeModal.emit();
+  }
+
+  save() {
+    this.formComponent.submitForm();
   }
 }

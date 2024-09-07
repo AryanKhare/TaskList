@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -12,14 +12,21 @@ export class FormComponent implements OnInit {
 
   @Input() titleLable!: string;
   @Input() descLabel!: string;
-  form: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  title = new FormControl("", [Validators.required]);
+  description = new FormControl("");
+  form!: FormGroup;
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      title: new FormControl(['', Validators.required]),
-      description: new FormControl([''])
+    this.form = new FormGroup({
+      title: this.title,
+      description: this.description
     });
+  }
+
+  submitForm() {
+    if(this.form.valid) {
+      console.log(this.form.value);
+    }
   }
 }

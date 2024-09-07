@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-status',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './status.component.html',
   styleUrl: './status.component.css'
 })
@@ -27,4 +28,9 @@ export class StatusComponent {
     }
   ]
 
+  selectedType: string | null = null;
+
+  setSelectedType(item: { name: string | null; }) {
+    this.selectedType = this.selectedType === item.name ? null : item.name;
+  }
 }

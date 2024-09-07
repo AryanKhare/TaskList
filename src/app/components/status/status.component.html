@@ -1,7 +1,12 @@
 <div class="container">
     @for (item of taskTypeList; track $index) {
-        <button class="taskType">
-            <img src={{item.image}}>
+        <button class="taskType" (click)="setSelectedType(item)" [ngStyle]="{'border': item.name === selectedType ? '2px solid #3662E3' : ''}">
+            <img src={{item.image}} 
+                [ngStyle]="{
+                    'background': item.name === 'Completed' ? '#32D657' : 
+                                    item.name === 'In progress' ? '#E9A23B' : 
+                                    item.name === 'Won\'t do' ? '#DD524C' : ''                            
+                            }">
             <p>{{item.name}}</p>
         </button>
     }

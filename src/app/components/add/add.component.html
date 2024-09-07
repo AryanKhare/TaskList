@@ -1,0 +1,23 @@
+<div class="modal-backdrop" (click)="close()"></div>
+
+<div class="modal-container">
+    <div class="heading">
+        <p>Task details</p>
+        <img src="../../../../public/close_ring_duotone-1.svg" alt="closeModal" (click)="close()">
+    </div>
+
+    <app-form [titleLable]="'Task title'" [descLabel]="'Description'"></app-form>
+    <app-icon></app-icon>
+    <app-status></app-status>
+
+    <div class="action">
+        <button>
+            <p>Delete</p>
+            <img src="../../../../public/Trash.svg">
+        </button>
+        <button>
+            <p>Save</p>
+            <img src="../../../../public/Done_round.svg">
+        </button>
+    </div>
+</div>

@@ -1,13 +1,13 @@
 <div class="container">
   <div class="title">
     <div class="title-icon">
-      <img src="Logo.svg" alt="Logo" />
+      <img src="../../public/Logo.svg" alt="Logo" />
     </div>
 
     <div class="title-head">
       <div class="title-heading">
         <p>{{ boardTitle }}</p>
-        <img src="Edit_duotone.svg" />
+        <img src="../../public/Edit_duotone.svg" />
       </div>
 
       <div class="title-desc">{{ boradDesc }}</div>
@@ -20,10 +20,14 @@
     }
   </div>
 
-  <div class="add-task">
+  <div class="add-task" (click)="openModal()">
     <div class="add-task-icon">
-      <img src="Add_round_duotone.svg" />
+      <img src="../../public/Add_round_duotone.svg" />
     </div>
     <p>Add new task</p>
   </div>
 </div>
+
+@if (isModalOpen) {
+  <app-add (closeModal)="closeModal()"></app-add>
+}

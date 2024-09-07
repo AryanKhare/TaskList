@@ -1,1 +1,7 @@
-<p>icon works!</p>
+<div class="container">
+    @for (item of iconList; track $index) {
+        <button class="iconBox">
+            <p>{{item}}</p>
+        </button>
+    }
+</div>

@@ -1,1 +1,8 @@
-<p>status works!</p>
+<div class="container">
+    @for (item of taskTypeList; track $index) {
+        <button class="taskType">
+            <img src={{item.image}}>
+            <p>{{item.name}}</p>
+        </button>
+    }
+</div>

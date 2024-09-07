@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.iconBox {
+    padding: 0.5rem;
+    background: rgba(94, 92, 92, 0.433);
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.iconBox:active{
+    background: #F5D565;
+}

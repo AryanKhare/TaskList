@@ -1,1 +1,15 @@
-<p>form works!</p>
+<div class="container">
+    <form [formGroup]="form"></form>
+    <div class="title">
+        <label for="title">{{titleLable}}</label>
+        <input type="text" name="title" placeholder="Enter a title" formControlName="title"/>
+        @if(form.get('title').invalid && form.get('title').touched) {
+            <p>Title is required.</p>
+        }
+    </div>
+    
+    <div class="desc">
+        <label for="desc">{{descLabel}}</label>
+        <textarea name="desc" placeholder="Enter a short description" formControlName="desc"></textarea>
+    </div>
+</div>

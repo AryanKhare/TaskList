@@ -30,4 +30,7 @@ export class FormComponent implements OnInit {
       return this.form.value;
     }
   }
+  isSubmitFormValid(): boolean{
+    return this.form.valid;
+  }
 }

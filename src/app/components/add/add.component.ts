@@ -13,6 +13,7 @@ import { StatusComponent } from "../status/status.component";
 export class AddComponent {
   @Output() closeModal = new EventEmitter<void>();
   @ViewChild(FormComponent) formComponent!: FormComponent;
+  @ViewChild(IconComponent) formIconComponent!: IconComponent;
 
   close() {
     this.closeModal.emit();
@@ -20,5 +21,10 @@ export class AddComponent {
 
   save() {
     this.formComponent.submitForm();
+    this.formIconComponent.submitIconForm();
+  }
+
+  finalFormValidate(): boolean{
+     return this.formComponent?.isSubmitFormValid() && this.formIconComponent?.isSubmitIconFormValid();
   }
 }

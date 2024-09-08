@@ -16,11 +16,11 @@
 
   <div class="tasks">
     @for (item of taskData; track $index) {
-    <app-task [task]="item" />
+    <app-task [task]="item" (openModal)="openModal(item)"/>
     }
   </div>
 
-  <div class="add-task" (click)="openModal()">
+  <div class="add-task" (click)="openModal(modalData)">
     <div class="add-task-icon">
       <img src="../../public/Add_round_duotone.svg" />
     </div>
@@ -29,5 +29,5 @@
 </div>
 
 @if (isModalOpen) {
-  <app-add (closeModal)="closeModal()"></app-add>
+  <app-add (closeModal)="closeModal()" (reload)="ngOnInit()" [modalData]="modalData"></app-add>
 }

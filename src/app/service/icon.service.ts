@@ -16,4 +16,9 @@ export class IconService {
     { id: 6, icon: '💭', },
     { id: 7, icon: '👩‍💻', },
   ];
+
+  getIndexValue(index: number): string {
+    let data = this.iconList.filter(item => item.id === index);
+    return data[0]?.icon;
+  }
 }

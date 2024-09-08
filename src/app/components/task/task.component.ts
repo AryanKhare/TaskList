@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Task } from '../../types/task.model';
 
@@ -12,8 +12,13 @@ import { Task } from '../../types/task.model';
 export class TaskComponent implements OnInit{
 
   @Input({required: true}) task!: Task;
+  @Output() openModal = new EventEmitter<Task>();
 
   constructor(private dataSerive: DataService) { }
 
   ngOnInit(): void { }
+
+  editTask(task: Task) {
+    this.openModal.emit(task);
+  }
 }

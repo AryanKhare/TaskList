@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-status',
@@ -8,8 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './status.component.html',
   styleUrl: './status.component.css'
 })
-export class StatusComponent {
-
+export class StatusComponent implements OnInit {
   taskTypeList = [
     {
       id: 1,
@@ -29,6 +28,11 @@ export class StatusComponent {
   ]
 
   selectedType: string | null = null;
+  @Input() statusType: any;
+
+  ngOnInit(): void{
+    console.log("statusType",this.statusType);
+  }
 
   setSelectedType(item: { name: string | null; }) {
     this.selectedType = this.selectedType === item.name ? null : item.name;

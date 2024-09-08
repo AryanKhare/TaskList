@@ -17,8 +17,8 @@
     [descriptionValue]="descriptionValue"
   ></app-form>
 
-  <app-icon></app-icon>
-  <app-status></app-status>
+  <app-icon [selectedIconIdVal]="selectedIconIdVal" [editMode]="editMode" ></app-icon>
+  <app-status [statusType]="statusType"></app-status>
 
   <div class="action">
     @if(titleValue !== '') {

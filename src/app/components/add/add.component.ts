@@ -33,6 +33,9 @@ export class AddComponent implements OnInit{
   taskId: number | undefined;
   titleValue!: string;
   descriptionValue: string | null | undefined = '';
+  statusType: any;
+  selectedIconIdVal!: number;
+  editMode: boolean = false;
 
   constructor(
     private dataService: DataService,
@@ -43,6 +46,12 @@ export class AddComponent implements OnInit{
     this.taskId = this.modalData.id;
     this.titleValue = this.modalData?.title;
     this.descriptionValue = this.modalData?.description;
+    this.selectedIconIdVal =  this.modalData?.iconId;
+    this.statusType = this.modalData?.type
+    console.log("modalData",this.modalData);
+    if(this.taskId !== -1){
+      this.editMode = true;
+    }
   }
 
   close() {
@@ -56,20 +65,27 @@ export class AddComponent implements OnInit{
     const statusData = this.statusComponent.selectedType;
     let iconString: string = '';
 
-    if(iconData) {
+    if(iconData ) {
       iconString = this.iconService.getIndexValue(iconData);
     }
 
     const result:Task = {
+      id: this.taskId,
       title: formData.title,
       description: formData?.description !== '' ? formData.description : null,
       type: statusData,
       icon: iconString,
-      iconId: Number(iconData)
+      iconId: Number(iconData),
     };
-
+   if(this.editMode){
+    this.dataService.updateData(result);
+    this.close();
+   }
+   else{
     this.dataService.setData(result);
     this.close();
+   }
+   
   }
 
   delete(id: number | undefined) {
@@ -79,8 +95,8 @@ export class AddComponent implements OnInit{
 
   finalFormValidate(): boolean {
     return (
-      this.formComponent?.isSubmitFormValid() &&
-      this.formIconComponent?.isSubmitIconFormValid()
+      (this.editMode) || (this.formComponent?.isSubmitFormValid() &&
+      this.formIconComponent?.isSubmitIconFormValid())
     );
   }
 }

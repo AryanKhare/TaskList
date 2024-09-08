@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 export class IconComponent implements OnInit {
   iconList!: Icon[];
   selectedIconId: number | null = null;
+  @Input() selectedIconIdVal!: number;
+  @Input() editMode!: boolean;
 
   constructor(private icons: IconService) {}
 
@@ -21,11 +23,14 @@ export class IconComponent implements OnInit {
   }
 
   selectIcon(iconId: number) {
+    this.selectedIconIdVal = -1;
     this.selectedIconId = this.selectedIconId === iconId ? null : iconId;
-    // console.log(this.selectedIconId);
   }
 
   submitIconForm() {
+    if(this.editMode && this.selectedIconId === null){
+      this.selectedIconId = this.selectedIconIdVal;
+    }
     return this.selectedIconId;
   }
 

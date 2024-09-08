@@ -5,5 +5,6 @@ export interface Task {
     type?: string | null,
     createDate?: Date,
     lastUpdated?: Date | null,
-    icon: string
+    icon: string,
+    iconId: number
 };

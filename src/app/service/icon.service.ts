@@ -18,10 +18,7 @@ export class IconService {
   ];
 
   getIndexValue(index: number): string {
-    const data = this.iconList[index + 1].icon;
-    if(data) {
-      return data;
-    }
-    return '';
+    let data = this.iconList.filter(item => item.id === index);
+    return data[0]?.icon;
   }
 }

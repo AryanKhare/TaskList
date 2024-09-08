@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
     title: '',
     description: '',
     type: '',
+    iconId: -1,
     icon: ''
   };
   
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit {
   openModal(modalData: Task) {
     this.modalData = modalData;
     this.isModalOpen = true;
+    console.log('modalData: ', this.modalData);
   }
 
   closeModal() {
@@ -44,7 +46,8 @@ export class AppComponent implements OnInit {
       title: '',
       description: '',
       type: '',
-      icon: ''
+      icon: '',
+      iconId: -1
     };
   }
 }

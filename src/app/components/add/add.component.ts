@@ -64,7 +64,8 @@ export class AddComponent implements OnInit{
       title: formData.title,
       description: formData?.description !== '' ? formData.description : null,
       type: statusData,
-      icon: iconString
+      icon: iconString,
+      iconId: Number(iconData)
     };
 
     this.dataService.setData(result);

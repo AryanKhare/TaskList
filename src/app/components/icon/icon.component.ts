@@ -22,6 +22,7 @@ export class IconComponent implements OnInit {
 
   selectIcon(iconId: number) {
     this.selectedIconId = this.selectedIconId === iconId ? null : iconId;
+    // console.log(this.selectedIconId);
   }
 
   submitIconForm() {

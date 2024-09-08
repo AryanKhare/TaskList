@@ -5,7 +5,7 @@ import { Task } from '../types/task.model';
   providedIn: 'root'
 })
 export class DataService {
-    
+  
   constructor() {
     if(!localStorage.getItem('taskData')) {
       localStorage.setItem('taskData', JSON.stringify([]));
@@ -17,16 +17,25 @@ export class DataService {
     return data ?  JSON.parse(data!) : [];
   }
 
+  getIdNumber(data: Task[]): number {
+    if(data.length > 0) {
+      let maxId = -1;
+      
+      data.forEach((item) => {
+        if(item.id! > maxId) {
+          maxId = item.id!;
+        }
+      });
+
+      return maxId + 1;
+    } else {
+      return 1;
+    }
+  }
+
   setData(item: Task): void {
     const data = this.getData();
-
-    if(data.length > 0) {
-      let idNumber = data[data.length - 1].id;
-      item.id = idNumber ? idNumber + 1 : -1;
-    } else {
-      item.id = 1;
-    }
-
+    item.id = this.getIdNumber(data);
     item.createDate = new Date();
 
     data.push(item);
